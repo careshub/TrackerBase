@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.mmptracker.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.mmptracker.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.mmptracker.org/">
+      <s:element name="GetXmlDocument">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetXmlDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXmlDocumentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetOrUpdateProjectLocationInDb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="projOid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usrId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="locattrs" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetOrUpdateProjectLocationInDbResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetOrUpdateProjectLocationInDbResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFeatureToDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="action" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="geomtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coords" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="featattrs" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="usrId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFeatureToDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubmitFeatureToDatabaseResult" type="tns:ReturnFeaturesStructure" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReturnFeaturesStructure">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="newid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="newcoords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="newattrs" type="tns:ArrayOfReturnField" />
+          <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReturnField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReturnField" type="tns:ReturnField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReturnField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="feattype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="acres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="spracres" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="coords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RemoveFeature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="feattype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="projid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFeatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveFeatureResult" type="tns:ReturnFeaturesStructure" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFeatureGeometry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="feattype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="usrId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="projid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nowdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveFeatureGeometryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RemoveFeatureGeometryResult" type="tns:ReturnFeaturesStructure" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSBOperationTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stateAbbrev" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSBOperationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSBOperationTypesResult" type="tns:ReturnSetbackOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReturnSetbackOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sboptions" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="shape" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="info" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSBFeatureTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbCategoryID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbOperationTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSBFeatureTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSBFeatureTypesResult" type="tns:ReturnSetbackOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSBFeatureDefs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sbCategoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbFeatTypeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sbOpTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSBFeatureDefsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSBFeatureDefsResult" type="tns:ReturnSetbackOptions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetXmlDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXmlDocument" />
+  </wsdl:message>
+  <wsdl:message name="GetXmlDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXmlDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetOrUpdateProjectLocationInDbSoapIn">
+    <wsdl:part name="parameters" element="tns:SetOrUpdateProjectLocationInDb" />
+  </wsdl:message>
+  <wsdl:message name="SetOrUpdateProjectLocationInDbSoapOut">
+    <wsdl:part name="parameters" element="tns:SetOrUpdateProjectLocationInDbResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFeatureToDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitFeatureToDatabase" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFeatureToDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitFeatureToDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFeatureSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFeature" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFeatureSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFeatureGeometrySoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveFeatureGeometry" />
+  </wsdl:message>
+  <wsdl:message name="RemoveFeatureGeometrySoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveFeatureGeometryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSBOperationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSBOperationTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetSBOperationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSBOperationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSBFeatureTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSBFeatureTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetSBFeatureTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSBFeatureTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSBFeatureDefsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSBFeatureDefs" />
+  </wsdl:message>
+  <wsdl:message name="GetSBFeatureDefsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSBFeatureDefsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GISToolsSoap">
+    <wsdl:operation name="GetXmlDocument">
+      <wsdl:input message="tns:GetXmlDocumentSoapIn" />
+      <wsdl:output message="tns:GetXmlDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetOrUpdateProjectLocationInDb">
+      <wsdl:input message="tns:SetOrUpdateProjectLocationInDbSoapIn" />
+      <wsdl:output message="tns:SetOrUpdateProjectLocationInDbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFeatureToDatabase">
+      <wsdl:input message="tns:SubmitFeatureToDatabaseSoapIn" />
+      <wsdl:output message="tns:SubmitFeatureToDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeature">
+      <wsdl:input message="tns:RemoveFeatureSoapIn" />
+      <wsdl:output message="tns:RemoveFeatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeatureGeometry">
+      <wsdl:input message="tns:RemoveFeatureGeometrySoapIn" />
+      <wsdl:output message="tns:RemoveFeatureGeometrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSBOperationTypes">
+      <wsdl:input message="tns:GetSBOperationTypesSoapIn" />
+      <wsdl:output message="tns:GetSBOperationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureTypes">
+      <wsdl:input message="tns:GetSBFeatureTypesSoapIn" />
+      <wsdl:output message="tns:GetSBFeatureTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureDefs">
+      <wsdl:input message="tns:GetSBFeatureDefsSoapIn" />
+      <wsdl:output message="tns:GetSBFeatureDefsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GISToolsSoap" type="tns:GISToolsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetXmlDocument">
+      <soap:operation soapAction="http://www.mmptracker.org/GetXmlDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOrUpdateProjectLocationInDb">
+      <soap:operation soapAction="http://www.mmptracker.org/SetOrUpdateProjectLocationInDb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFeatureToDatabase">
+      <soap:operation soapAction="http://www.mmptracker.org/SubmitFeatureToDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeature">
+      <soap:operation soapAction="http://www.mmptracker.org/RemoveFeature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeatureGeometry">
+      <soap:operation soapAction="http://www.mmptracker.org/RemoveFeatureGeometry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBOperationTypes">
+      <soap:operation soapAction="http://www.mmptracker.org/GetSBOperationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureTypes">
+      <soap:operation soapAction="http://www.mmptracker.org/GetSBFeatureTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureDefs">
+      <soap:operation soapAction="http://www.mmptracker.org/GetSBFeatureDefs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GISToolsSoap12" type="tns:GISToolsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetXmlDocument">
+      <soap12:operation soapAction="http://www.mmptracker.org/GetXmlDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetOrUpdateProjectLocationInDb">
+      <soap12:operation soapAction="http://www.mmptracker.org/SetOrUpdateProjectLocationInDb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFeatureToDatabase">
+      <soap12:operation soapAction="http://www.mmptracker.org/SubmitFeatureToDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeature">
+      <soap12:operation soapAction="http://www.mmptracker.org/RemoveFeature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFeatureGeometry">
+      <soap12:operation soapAction="http://www.mmptracker.org/RemoveFeatureGeometry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBOperationTypes">
+      <soap12:operation soapAction="http://www.mmptracker.org/GetSBOperationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureTypes">
+      <soap12:operation soapAction="http://www.mmptracker.org/GetSBFeatureTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSBFeatureDefs">
+      <soap12:operation soapAction="http://www.mmptracker.org/GetSBFeatureDefs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GISTools">
+    <wsdl:port name="GISToolsSoap" binding="tns:GISToolsSoap">
+      <soap:address location="http://snmpdev.mmptracker.org/GISTools.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GISToolsSoap12" binding="tns:GISToolsSoap12">
+      <soap12:address location="http://snmpdev.mmptracker.org/GISTools.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

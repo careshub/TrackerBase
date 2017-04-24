@@ -1,0 +1,148 @@
+﻿/* my colors
+ background: #d9d5ac;
+ red brown: #663300;
+ lighter brown: #aa8866;
+ draw cell: #00DED1;
+ dark goldenrod: #B8860B;
+ gold: #FFD700;
+ Jen's way background: #6E4F30;
+ Sitehome button nav: #ffffcb; cream
+ Sitehome button nav_out: #587420; green
+*/
+
+img[src*="undo_poly.png"] {display: none !important;}/*google map undo icon*/
+
+/* HTML elements */
+
+HR { /*color:#aa8866; background-color:#aa8866; border: .05em solid #aa8866;*/}
+UL LI { list-style-type: none; }
+INPUT.numeric { text-align: right;}
+
+.home-main { margin-right:250px;}
+.home-menu { width:240px; float:right;}
+.helpbutton { float: right; }
+.helpbutton:hover { cursor:pointer; }
+.section-title { font-weight: 600; font-size: 1.5em; font-variant: small-caps; color: #663300;}
+.toggleInfo { font-size:1em; margin-left: 2em; }
+.toggleInfo:hover { cursor: pointer; color: #D2691E; text-decoration: underline; }
+.button-toggle { height: 16px; }
+.jsAction:hover { cursor: pointer; color: #D2691E; text-decoration: underline; } 
+.formText { font-size:1em; margin-right:20px; color:#000000; }
+.info-text { font-size:1em; margin-right:20px; color:#000000; }
+.warnText { font-size:1em; margin-right:20px; color:#ff0000; }
+.spacer { clear: both; }
+.zoomButton { width:12em; height:3em; margin: 0 5px; }
+.imgbut1 { background-image: url( "../images/clearsel.gif"); }
+.imgbut2 { background-image: url( "../images/print_on.gif"); }
+.bufflabel { margin-left: 0px; padding-bottom: 20px; text-align: left; }
+
+.section-left { float: left; width: 40%; padding: 0 5px; clear:both; }
+.section-right { float: right; width: 50%; padding: 0 5px; }
+
+.uxHelpDrawing{
+ border: 1px solid #ffffff;width:150px;height:30px;
+ font-family: Segoe UI, Verdana, Arial;  
+ font-size: 12px; background: #C41F26;
+ color:#ffffff; font-weight:normal;
+ cursor: pointer;
+ }
+.activeBtn{
+ border: 1px solid #ffffff;width:60px;height:30px;
+ font-family: Segoe UI, Verdana, Arial;  
+ font-size: 12px; background: #C41F26;
+ color:#ffffff; font-weight:normal;
+ cursor: pointer;
+ }
+.activeBtn:hover {
+ background:#228B22; font-style:italic;
+ }
+.inactiveBtn {
+ border: 1px solid #ffffff;width:60px;height:30px;
+ font-family: Segoe UI, Verdana, Arial;  
+ font-size: 11px; background: #999999;
+ color:#ffffff; font-weight:normal;
+ }
+
+/* BEGIN: overlay info window styles */
+div[class*='infoWin'] th { color:#ffffff; }
+div[class*='infoWinH'] th, div[class*='infoWinW'] th { color:#000000; }
+.infoWinTA, .infoWinHP { min-height:100px; width: 300px; }
+.infoWinS, .infoWinSB { height:200px; width: 400px; }
+.fieldInfo, .highPointInfo { width: 100%;}
+.fieldInfo th,.highPointInfo th { padding: 0 2px; text-align: center; color:#ffffff; }
+.fieldInfo td,.highPointInfo td { padding: 0 2px; text-align: left; }
+/*.fieldInfo th{ background: #0000ff;}*/
+/*.highPointInfo th{ background: #00ff00;}*/
+.fieldInfo td.first, .highPointInfo td.first {width: 100px;}
+/* END: overlay info window styles */
+
+[title=Show\ 45\ degree\ view], [title=Zoom\ in\ to\ show\ 45\ degree\ view], [title=Zoom\ in\ to\ show\ 45-degree\ view] {
+  display:none !important;
+}
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.cssform p{width: 300px;clear: left;margin: 0;padding: 5px 0 8px 0;
+padding-left: 155px; /*width of left column containing the label elements*/border-top: 1px dashed gray;height: 1%;}
+.cssform label{font-weight: bold;float: left;margin-left: -155px; /*width of left column*/
+width: 150px; /*width of labels. Should be smaller than left column (155px) to create some right margin*/}
+.cssform input[type="text"]{ /*width of text boxes. IE6 does not understand this attribute*/width: 180px;}
+.cssform textarea{width: 250px;height: 150px;}
+
+.map-view-control { width:100px; bottom: 5px; position:relative; }
+
+.popup-form.wide-form { max-width: 800px; }
+.year{ width:5em;}
+
+.border-left { border-left: 1px solid #2c5d1b; }
+.border-right { border-right: 1px solid #2c5d1b; }
+
+.app-calc-table { border-collapse:collapse; }
+.app-calc-table td { text-align:center; }
+
+.field-table td{width: 16%;}
+.field-table td:nth-child(odd){text-align:right;}
+.field-table td:nth-child(even){text-align:left;}
+.field-table .notes { vertical-align:top; color:inherit;}
+.no-align { text-align: center!important;}
+
+/* elements by id */
+#uxProjectInfoContainer, #uxZoomButtons 
+{ margin: .2em 0; padding: .2em 0; font-size:1em; clear:both; }
+
+#uxProjectName { margin-right:0;color:#0000ff; }
+#uxProjectLocation { color:#0000ff; }
+
+#uxMapContainer { border:solid medium #663300;/* original:  margin: 2px 0; width: 80%; float:left;*/ } 
+#uxMapControls { font-size:1em;/* original: width: 18%; float:right; */} 
+
+#uxCreateFieldMessage { color:#FF3300; float:right; }
+#uxFieldId { width:16em; }
+.field-tools-main .left-column { width: 30%; /*float:left; text-align:right;*/ }
+.field-tools-main .right-column { /*float:left; text-align:left;*/ } 
+#uxCreateFieldNotes { overflow:auto; }
+#uxFieldNotesInfo { vertical-align:top; }
+
+#FeatureHelp, .popup-help {
+ z-index:88;
+ font-size:11px; /*position:absolute; top:288px; left:auto; margin-left:100px; width: 500px; */
+ background:#ffffff; border:1px solid #d9d5ac; padding: 5px;
+ }
+
+#uxToggleZoomWheelContainer { font-size: 1.1em; vertical-align: bottom;}
+#uxToggleZoomWheel { vertical-align: bottom; } 
+
+/* for hiding controls on googlemap
+.gmnoprint { display:none; }
+*/
+
+.hover-info-message { width: 500px; max-width: 500px; }
+.tools-list ul{ margin: 15px 0;}
+.tools-list li{clear:both;}
+
+/*accordion*/
+#uxCreateFieldInfo { clear: both; }
+#uxNavTools li { margin: 0; clear:both; }
+/*accordion*/
+

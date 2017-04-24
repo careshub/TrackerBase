@@ -1,0 +1,15 @@
+﻿#uxAccordionProjectTools .ui-icon { background-image: none/*removes arrowhead*/; }
+
+.mgmt-main { margin-right:250px;}
+.mgmt-menu { width:240px; float:right;}
+
+.project-table {position: relative;border-collapse: separate;  border-spacing: 10px 5px; width: 100%;}
+.project-table td{width: 16%;}
+.project-table td:nth-child(odd){text-align:right;}
+.project-table td:nth-child(even){text-align:left;}
+.project-table .notes { vertical-align:top; color:inherit;}
+
+.popup-form .right-column.small { width: 100px; }
+.popup-form .smaller { width: 50px; }
+.popup-form .text-center { text-align: center; }
+

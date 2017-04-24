@@ -1,0 +1,194 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeFile ="Site.Master.vb" Inherits="Site" %>
+<!DOCTYPE html /><%
+response.buffer = true
+
+Dim debug_flag As Boolean
+debug_flag = ( Request.ServerVariables ( "remote_addr" ) = "128.206.75.142" ) 'debug kevin's machine
+%>
+<html>
+<head runat="server">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Terrace Location</title>
+  <link id="Link1" runat="server" rel="shortcut icon" href="/images/favicon.ico?v=1" type="image/x-icon" />
+  <link id="Link2" runat="server" rel="icon" href="/images/favicon.ico?v=1" type="image/ico" />
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" type="text/css" href="~/Styles/Site.css?v=20150918" />
+
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0-vsdoc.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+  <%--<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.min.map"></script>--%>
+
+  <script type="text/javascript" src="/Scripts/FirstLoad.js?v=20150918"></script>
+
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script type="text/javascript" src="/Scripts/Site.js?v=20150918"></script>
+  <script type="text/javascript" src="/Scripts/jsviews.js"></script>
+  <script type="text/javascript" id="uxJSViewsScript">
+    $.views.tags("Date", ConvertDate);
+    $.views.tags("SDate", ConvertDateShort);
+    $.views.converters("bool", function (val) { return IsTrue(val); });
+    $.views.converters("positive", function (val) { return IsPositive(val) ? val : ""; });
+    $.views.converters("nonnegative", function (val) { return IsNonNegative(val) ? val.toString() : ""; });
+    $.views.converters("positiveDate", function (val) {
+      var valDate = new Date(val);
+      if (val != -1 && IsValidDate(valDate) && valDate.getFullYear() > 1969) return val;
+      return "Not set";
+    });
+    function IsPositive(val) { if (parseFloat(val) && parseFloat(val) > 0) return true; return false; }
+    function IsNonNegative(val) { if (parseFloat(val) >= 0) return true; return false; }
+    function IsTrue(val) { if (val && (val === true || val === 'true' || (ParseInt10(val) && ParseInt10(val) !== 0))) return true; return false; } 
+  </script>
+  <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+  </asp:ContentPlaceHolder>
+</head>
+<body>
+  <form runat="server" enctype="multipart/form-data" method="post">
+  <asp:ScriptManager runat="server">
+    <Services>
+      <asp:ServiceReference Path="~/GISTools.asmx" />
+    </Services>
+  </asp:ScriptManager>
+  <div id="uxPage" class="page">
+    <div class="header" id="uxSiteHeader" runat="server">
+      <div id="uxNavigationMenu" class="menu" style="float: left;">
+        <ul class="static" tabindex="0" style="position: relative; width: auto; float: left;" role="menubar">
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="/ProjectMgmt" class="" id="prjmgmt" title="Go to Project Management page" tabindex="-1">[ Project Mgmt ]</a>
+          </li>
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="/ProjectHome" class="" id="stepone" title="Create terrace area and contours" tabindex="1">[ 1: Area ]</a>
+          </li>
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="/ProjectHome" class="" id="steptwo" title="Create high point, ridgelines and waterways" tabindex="2">[ 2: Features ]</a>
+          </li>
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="/ProjectHome" class="" id="stepthree" title="Set defaults for equipment and costs" tabindex="3">[ 3: Defaults ]</a>
+          </li>
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="/ProjectHome" class="" id="stepfour" title="Select terraces to be used" tabindex="4">[ 4: Selection ]</a>
+          </li>
+          <li role="menuitem" class="dynamic" style="position: relative; float: left;">
+            <a href="" class="" id="news" title="Open news panel" tabindex="-1">[ News ]</a>
+          </li>
+          <li role="menuitem" class="static" style="position: relative; float: left;">
+            <a href="" class="" id="about" title="Open site information panel" tabindex="-1">[ About ]</a>
+          </li>
+        </ul>
+      </div>
+      <div class="login-display">
+        <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+          <AnonymousTemplate>
+             <a href="/Login" id="HeadLoginAnonymousStatus" runat="server">Log In</a>            
+          </AnonymousTemplate>
+          <LoggedInTemplate>
+            Welcome <span class="bold">
+              <a href="/ChangePassword" runat="server"><asp:Label ID="uxDisplayName" runat="server"></asp:Label>
+                <asp:LoginName ID="HeadLoginName" runat="server" CssClass="display-none" FormatString="" /></a>
+            </span>!
+            <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" ToolTip="Log out from Terrace Tools" LogoutText="Log Out" LogoutPageUrl="~/" />
+          </LoggedInTemplate>
+        </asp:LoginView>
+      </div>
+    </div>
+    <div id="uxContent" class="clear main">
+      <asp:Label ID="uxSiteUseWarning" runat="server" CssClass="warning-text">This is a development site for Terrace Tools. Please use <a href="http://terrace.missouri.edu">terrace.missouri.edu</a>.</asp:Label>
+      <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <div class="clear">
+    </div>
+  <div class="footer text-small display-none">
+  Copyright © 2015  — Curators of the <a href="http://www.umsystem.edu" target="_blank">University of Missouri</a>. All rights reserved. 
+  <a href="http://www.missouri.edu/dmca/" target="_blank">DMCA</a> and <a href="http://www.missouri.edu/copyright.php" target="_blank">other copyright information</a>.
+  </div>
+  </div>
+  
+  <div id="uxProcessing" class="display-none">
+    <asp:ImageButton ID="uxProcessingImage" runat="server" BorderStyle="Solid" Visible="true"
+         ImageUrl="/images/ajax-loader-big-flower.gif" ToolTip="Please wait..." />
+    <br /><br />
+    <span id="uxProcessingInfo">Please wait for processing...</span>
+    <br /><br />
+    <span id="uxProcessingMsg"></span>
+  </div>
+  
+<div id="uxAboutContainer" class="display-none popup-container">
+  <div id="uxAboutBackground" class="popup-background"></div>
+  <div id="uxAboutForm" class="popup-form">
+    <div id="uxAboutHeader" class="popup-header">
+      <h3>About this site</h3>
+      <div class="popup-control-panel">
+        <img title="Close this form" alt="Close this form" src="/images/close.png"
+              class="control-close" onclick="CloseForm('About');" />
+      </div>
+      <hr id="uxAboutDragLineUpper" />
+    </div>
+    <div id="uxAboutMain" class="input-small">
+      <p class="whitespace"></p>
+      <p>
+        Please note that most buttons have hover info attached to them that may help you. 
+        Move your mouse over a button and keep it still for a second to see this additional info.
+      </p>
+      <p class="whitespace"></p>
+      <p class="clear-align">
+          For problems, questions or comments, contact 
+          <a id="uxEmailToKevin" href="mailto:AthertonK@missouri.edu?subject=TerLoc (v1.0.0)">Kevin Atherton</a> (programmer) or
+          <a id="uxEmailToAllen" href="mailto:ThompsonA@missouri.edu?subject=TerLoc (v1.0.0)">Allen Thompson</a> (project manager) at the University of Missouri.
+      </p>
+      <p class="whitespace"></p>
+      <p>
+          You are on version 1.0.0 of the Terrace Location Tool.<br />
+          TerLoc requires cookies and javascript to be enabled.
+      </p>
+      <p class="whitespace"></p>
+    </div>
+    <div id="uxAboutButtons" class="popup-footer">
+      <input type="button" onclick="CloseForm('uxAbout');" title="Close the About window" value="Close" />
+    </div>
+  </div>
+</div>
+
+<div id="uxNewsContainer" class="display-none popup-container">
+  <div id="uxNewsBackground" class="popup-background"></div>
+  <div id="uxNewsForm" class="popup-form">
+    <div id="uxNewsHeader" class="popup-header">
+      <h3>News for TerLoc</h3>
+      <div class="popup-control-panel">
+        <img title="Close this form" alt="Close this form" src="/images/close.png"
+              class="control-close" onclick="CloseForm('News');" />
+      </div>
+      <hr id="uxNewsDragLineUpper" />
+    </div>
+    <div id="uxNewsMain" class="input-small">
+      <p class="whitespace"></p>
+      <ul class="disc">
+      <li>
+          Click on your username in the upper right to access the profile editing page.
+      </li>
+      <li>
+          All popup forms are draggable.
+      </li>
+      <li>
+          There are four tabs available after you open a project, each with their own tool menus:
+          <br />
+          Please follow them in order so that the program can make the proper calculations.
+      </li>
+      </ul>
+      <p class="whitespace-double"></p>
+    </div>
+    <div id="uxNewsButtons" class="popup-footer">
+      <input type="button" onclick="CloseForm('uxNews');" title="Close the News window" value="Close" />
+    </div>
+  </div>
+</div>
+
+  <asp:HiddenField runat="server" ID="uxHiddenProjectName" />
+  <asp:HiddenField runat="server" ID="uxHiddenProjectId" />
+  <asp:HiddenField runat="server" ID="uxHiddenPageFlag" />
+  <asp:HiddenField runat="server" ID="uxHiddenIsUserAuth" />
+  <asp:HiddenField runat="server" ID="uxHiddenSessionTimeout" />
+  </form>
+</body>
+<script type="text/javascript">jQuery('body').addClass('js');</script>
+</html>

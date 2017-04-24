@@ -1,0 +1,397 @@
+﻿/* COLORS http://www.colorschemer.com/schemes/index.php?tag=farm
+Dark 18320b
+Dark green 2c5d1b
+Light green 6A9029
+Brown 85552f
+Orange e48f00
+Gold fdc635
+Red ee3c52
+Pink ff737c
+*/
+
+/* PRE-DOM LOAD ----------------------------------------------------------*/
+body.js .notaccordion,body.js .accordion {display:none;}
+/* COLORS ----------------------------------------------------------*/
+.tan {background-color: #d9d5ac;}
+/* DEFAULTS ----------------------------------------------------------*/
+* {margin:0; padding:0; } /* remove any defaults (especially IE) */
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+.clear-fix { overflow: auto; position: relative;}
+.list-title { position: absolute; bottom: 5; width: 50%; color:#663300; font-weight:bold; font-variant:small-caps; }
+
+input::-moz-focus-inner{ border: 0; padding: 0;} /*Remove button padding in FF*/
+body { background: #6E4F30; font-size: 1em; color: #000000;}
+* { font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif; }
+a:link, a:visited{ color: #034af3;}
+a:hover{ color: #1d60ff; text-decoration: none;}
+a:active{ color: #034af3;}
+p{ margin: 5px 0 10px 0; line-height: 1.0;}
+div.p{ margin: 5px 0 10px 0; line-height: 1.0;}
+ul{ list-style:none;}
+li{clear:both;}
+ul.disc li {list-style:disc inside;}
+HR {clear:both; color:#18320b;}
+SELECT { border: 1px solid #2c5d1b;}
+TEXTAREA, INPUT[type="text"] { border: solid 1px #2c5d1b; padding: 1px; }
+INPUT[type="submit"],INPUT[type="button"]{ height:35px; min-width: 80px; margin: 2px; padding: 5px; color: #2c5d1b;
+ background-color: #e6e6e6; position: relative; border: none; /*display: inline-block;*/ 
+ box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -4px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+ -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;overflow: hidden; cursor: pointer;}
+ 
+INPUT[type="submit"].small,INPUT[type="button"].small{ height:25px; min-width: 30px; margin: 2px; padding: 3px; font-size: .9em; 
+ box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -2px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5);}
+ 
+INPUT[type="submit"]:hover,INPUT[type="button"]:hover{ color: #000000; /*background-color: #fdc635;*/ }
+INPUT[type="submit"]:active,INPUT[type="button"]:active{ /*color: #6A9029; background-color: #fdc635;*/ 
+  box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -2px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5); top: 3px;}
+
+INPUT[type="submit"].button-2h,INPUT[type="button"].button-2h { height:70px; }
+.button {
+ position: relative; border: none; display: inline-block;
+ box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -5px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5);
+ -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden; cursor: pointer;}
+.button:active { box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -2px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5); top: 3px;}
+.button div { padding: 10px 20px 12px 20px; color: rgba(0,0,0,0.7); text-shadow: 1px 1px 0px rgba(255,255,255,0.4);}
+.button:active div { padding-bottom: 9px;}
+INPUT[type="button"].arrow-button { min-width:30px; width: 30px; height: 30px; }
+
+/* LAYOUT ----------------------------------------------------------*/
+.wd-med {width:150px;}
+.whitespace { margin: 20px 0; }
+.whitespace-double { margin: 40px 0; }
+.margin-small-vert { margin: 3px 0; }
+.margin-small-hori { margin: 0 3px; }
+.logo-holder { background-color: #fff; padding: 7px; max-width:90%; max-height:100%;}
+INPUT[type="submit"].main-menu,INPUT[type="button"].main-menu { width:12em; height:3em;  }
+ul.spaced li {margin: 10px 0; }
+
+/* HEADINGS ----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6{ font-size: 1.5em; color: #000000; font-variant: small-caps; text-transform: none; /*font-weight: 200;*/ margin-bottom: 0px;}
+h1{ font-size: 1.6em; padding-bottom: 0px; margin-bottom: 0px;}
+h2{ font-size: 1.5em; font-weight: 600;}
+h3{ font-size: 1.2em;}
+h4{ font-size: 1.1em;}
+h5, h6{ font-size: 1em;}
+
+/* this rule styles <h1> and <h2> tags that are the first child of the left and right table columns */
+.right-column > h1, .right-column > h2, .left-column > h1, .left-column > h2{ margin-top: 0px;}
+
+/* PRIMARY LAYOUT ELEMENTS ----------------------------------------------------------*/
+
+.page{ width: 98%; background-color: #d9d5ac; margin: 30px auto 0px auto; border: 1px solid #fdc635;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;}
+.header{ position: relative; margin: 0px; padding: 0px; /*background: #4b6c9e;*/ width: 100%; height: 30px; top:-30px; left:-1px; border: 1px solid #fdc635;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;}
+.header h1{ font-weight: 700; margin: 0px; padding: 0px 0px 0px 20px; color: #f9f9f9; border: none; line-height: 1em; font-size: 1em;}
+.main{ padding: 10px; margin: -35px 8px 8px 8px; min-height: 420px; height: 95%;}
+.footer{ padding: 0 5px; margin: 0px auto; text-align: right; }
+
+.login-display{ font-size: 1em; display: block; text-align: right; padding: 2px 20px; color: #fdc635; }
+.login-display a:link{ color: #fdc635;}
+.login-display a:visited{ color: #fdc635;}
+.login-display a:hover{ color: #ee3c52;}
+.no-underline{ text-decoration:none;}
+
+/* TAB MENU ----------------------------------------------------------*/
+.dynamic li { z-index: 999999; }
+div.hide-skiplink{ /*background-color:#3a4f63;*/ float:left; }
+.menu li{ padding:  2px 20px 2px 20px; z-index: 10; clear:none;}
+.menu a
+{ /*background-color: #465c71; border: 1px #4e667d solid;  display: block;*/ color: #fdc635;line-height: 1em; text-transform: uppercase; font-weight: 600;
+ padding: 2px 10px; text-decoration: none; white-space: nowrap;}
+.menu a:hover{ /*background-color: #bfcbd6;*/ color: #ee3c52; text-decoration: none;}
+.menu a:active{ background-color: #465c71; color: #cfdbe6; text-decoration: none;}
+.menu .selected { background-color: #18320b;}
+.menu.aspNetDisabled { color: #85552f; }
+
+/* FORM ELEMENTS ----------------------------------------------------------*/
+
+fieldset{ margin: 1em 0px; padding: 1em; border: 1px solid #6A9029;}
+fieldset p { margin: 2px 12px 10px 10px;}
+fieldset.login label, fieldset.register label, fieldset.change-password label{ display: block;}
+fieldset label.inline { display: inline;}
+legend { font-size: 1.1em; font-weight: 600; padding: 2px 4px 8px 4px;}
+input.text-entry { width: 80%; max-width: 320px; min-width: 200px; border: 1px solid #ccc;}
+input.password-entry { width: 80%; max-width: 320px; border: 1px solid #ccc;}
+div.account-info{ max-width: 800px;}
+.left-column-reg{ clear:left; float:left; width:150px; text-align: right; padding-right:5px; vertical-align:top;}
+
+/* MISC ----------------------------------------------------------*/
+
+.left{ float: left;}
+.right{ float: right;}
+.clear{ clear: both;}
+.title{ display: block; float: left; text-align: left; width: auto;}
+.failure-notification{ font-size: 1.2em; color: Red;}
+.bold{ font-weight: bold;}
+.submit-button{ text-align: right; padding-right: 10px;}
+.main-image{ display:inline; padding: 3px; max-width:100%; max-height:100%;}
+.login-button{  width:100%;  }
+.display-none { display:none;}
+.visibility-none { visibility:hidden; }
+.text-small { font-size: .7em; }
+.text-right { text-align:right; }
+.text-left { text-align:left; }
+.text-center { text-align: center; }
+.notes {color:#ee3c52; }
+.center { text-align:center; }
+.warning { color: #ee3c52 !important; }
+.warning-text { color: #ee3c52; }
+.gridview tr td{ padding: 2px 5px; }
+.gridview tr th{ padding: 2px 5px; }
+.full-width{width: 100%;}
+.half-width{width: 50%;}
+.third-width {width:33%;}
+.sixth-width {width:16%;}
+.form-flag{ height:16px;}
+.space-left{ margin-left: 30%;}
+.border { border: 1px solid #2c5d1b;}
+
+/* POPUPS -------------------*/
+.popup-help { position: absolute; }
+.popup-info-details { background-color: #ffffff; border: 1px solid #000000; padding:2px; font-size:.8em; }
+.popup-menu { position:absolute; visibility:hidden; background-color:#eef4f9; max-width:50%; min-width:200px; border:solid 1px #ababab; padding:3px;}
+.popup-hover { background-repeat:repeat-x; background-position:left top; background-color:#F5F7F8; }
+
+/*Modal Popup*/
+.popup-container { position:fixed; width: 100%; top: 0; height: 100%; left: 0%;}
+.popup-header { text-align:center; } 
+.popup-header h3{ color:#663300; font-weight:bold; }
+.popup-footer { text-align:center; }
+.popup-background {
+  position: fixed; z-index: 55; width: 120%; top: -10%; height: 120%; left: -10%;
+  background-color: #18320b; filter:alpha(opacity=30); opacity:0.3; overflow:hidden; }
+.popup-form,.popup-tools {
+  background-color:#d9d5ac; border-width:1px; border-style:solid; border-color:#18320b; padding: 10px; margin: 0 auto;
+  position: fixed; z-index: 66; width: 60%; top: 10%; left: 10%; max-width: 700px; max-height: 90%;
+  -moz-border-radius: 10px;  -webkit-border-radius: 10px; -khtml-border-radius: 10px; border-radius: 10px;zoom: 1; }
+.popup-form INPUT[type="submit"],.popup-form INPUT[type="button"] { width: 20%; }
+.popup-form .input-small INPUT[type="text"] { width: 10em; }
+.popup-form .input-small SELECT { width: 40%; }
+.popup-form .input-small SELECT.left-column { width: 30%; text-align: center; padding-right: 0px; }
+.popup-form INPUT[type="submit"]:hover,.popup-form INPUT[type="button"]:hover, .popup-form INPUT[type="submit"]:active,.popup-form INPUT[type="button"]:active 
+{ }
+.popup-form p * {vertical-align:middle;}
+.popup-form p.clear-align * { vertical-align: inherit;}
+.popup-control-panel { position: absolute; top: 5px; right: 5px; vertical-align:middle; }
+
+/*Tools Popup - no background*/ 
+.popup-tools-header {  text-align:center; cursor: move; /*background-color: #aa8866; border: solid medium #aa8866; min-height: 25px;*/ }
+.popup-tools-main { border: solid medium #d9d5ac; }
+.popup-tools-header h3{ color:#663300; font-weight:bold; }
+.popup-tools-title { font-size: 1.5em; font-weight: 700; font-variant: small-caps; color: #663300; }
+.popup-tools-buttons-container { background-color: #aa8866; border: solid .3em #aa8866; min-height: 25px; }
+.popup-tools .input-small INPUT[type="text"] { width: 10em; }
+.field-tools-buttons-container INPUT { width: 15% !important;}
+
+/*Modal and Tools Popup*/
+.popup-form .left-column,.popup-tools .left-column{ float:left; width:30%; text-align: right; padding-right: 3px; }
+.popup-form .right-column,.popup-tools .right-column{ width:65%; text-align: left; margin-left: 3px; }
+.popup-form p.left-column-select .right-column{ margin-left: 3px; }
+.popup-form .wd-med {width: 20em;}
+
+#uxProcessing 
+{ position:fixed; left:0px; top:0px; vertical-align: middle; text-align:center; width:100%; height:100%;
+ border:solid 3px #2c5d1b; background-color:#fdc635; z-index:10001;
+}
+#uxProcessingImage { width:200px; height:200px; }
+#uxProcessingInfo, #uxProcessingMsg { font-size: 1.5em; }
+.details { position:absolute; z-index: 20; min-width:30%; background-color:#fff; border: 2px solid #2c5d1b;}
+
+/* CONTROLS WITH A PURPOSE ------------------*/
+.draggable {cursor:move;}
+.control-drag { cursor: move; }
+.control-help { cursor: help; }
+.control-close { cursor: auto; }
+
+/* ACCORDIONS ----------------------------------------------------------*/
+.accord-header-highlight *{ color: #ee3c52 !important; font-weight:bold !important;}
+.accord-button { width: 12em;}
+.accord-group { zoom: 1;} /* IE has layout issues when sorting (see #5413) */
+.valign-outer {display: table; position: static; }
+.valign-middle {display: table-cell; vertical-align: middle; width: 100%; position: static;}
+.ui-icon-triangle-1-e { float:left; /*keeps in line with radio and header*/ }
+.ui-icon-triangle-1-s { float:left; /*keeps in line with radio and header*/ }
+/* optional: .valign-inner[id] {position: static;} */
+.accord-display-none { display: none !important; }
+
+.accord-header-separate span{ display:inline-block;width:10em;}
+.accord-header-separate span:nth-child(1){ margin-left: 5px; }
+.accord-header-separate span:nth-child(even){ /*text-align:right;*/ color:#663300; font-weight:bold;}
+.accord-header-separate span:nth-child(3){ margin-left:40px;}
+.accord-header-separate span.text-left{ text-align:left;}
+
+.accord-header-separate-6 span{ display:inline-block;width:10%;}
+.accord-header-separate-6 span:nth-child(1){ margin-left: 5px; }
+.accord-header-separate-6 span:nth-child(even){ color:#663300; font-weight:bold;}
+.accord-header-separate-6 span:nth-child(5){ margin-left:40px;}
+.accord-header-separate-6 span.text-left{ text-align:left;}
+
+.header-split .right { position:absolute; right: 10px; top: 0; }
+.header-split INPUT.right { position:absolute; right: 10px; top:0; }
+
+.notaccordion.ui-accordion .ui-accordion-content, .notaccordion.ui-accordion .ui-accordion-header {
+ box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.2), inset 0px -3px 0px 0px rgba(0,0,0,0.3), inset 0px 2px 0px 0px rgba(255,255,255,0.5); }
+.ui-accordion .ui-accordion-content { padding-left:.5em; padding-right:.5em; overflow:visible; }
+.ui-accordion .ui-accordion-header { margin-top:0 !important; }
+.ui-accordion.ui-helper-reset { margin-bottom: 0px; }
+.ui-widget input, .ui-widget select, .ui-widget a { font-size: .8em; }
+.ui-widget input[type="checkbox"] { margin:.2em 0; }
+.ui-widget input,.ui-widget select,.ui-widget textarea,.ui-widget button { max-width: 96%; }
+.ui-widget * {font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;}
+.ui-widget {font-size: 1.0em; }
+.ui-widget-content.tan { background-color: #d9d5ac;background-image: none;}
+.ui-helper-reset { line-height: 1em;}
+
+/* Nav (from SC ---- needs adapting) --------------------------------------------- */
+.color-highlight-band {  width: 100%;  background-color: #0057A7;  height: 1px; z-index: 10001; clear:both;}
+nav#primary {
+  z-index: 10000; position:relative;
+  width: 100%;
+  background-color: #FFC222; /* #6f7672;*/
+  /* Old browsers */
+  color: #000000; /* I dont see effect when this is changed */
+  margin-top: 0;
+  line-height: 40px;
+  overflow: auto;
+  /*overflow:visible;*/
+}
+.header {
+  z-index: 10000; position:relative;
+  width: 100%;
+  background-color: #EEDC82; /* #6f7672;*/
+  /* Old browsers */
+  /* #6f7672; orig gradient #575c58; */
+  background: -moz-linear-gradient(top, #6A9029 22%, #2c5d1b 100%);  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, #6A9029), color-stop(100%, #2c5d1b));  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #6A9029 22%, #2c5d1b 100%);  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #6A9029 22%, #2c5d1b 100%);  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #6A9029 22%, #2c5d1b 100%);  /* IE10+ */
+  background: linear-gradient(top, #6A9029 22%, #2c5d1b 100%);  /* W3C */
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#6A9029', endColorstr='#2c5d1b', GradientType=0);  /* IE6-9 */
+  color: #000000; /* I dont see effect when this is changed */
+  margin-top: 0;
+  overflow: auto;
+  /*overflow:visible;*/
+}
+nav#primary ul {  margin-bottom: 0;  border-right: 1px solid #0057A7;}
+nav#primary ul.main {  float: left;  font-size: 22.4px;  font-size: 1.4rem;}
+nav#primary ul.secondary {  float: right;  font-size: 19.2px;  font-size: 1.2rem;}
+nav#primary ul li {  margin: 0;  padding: 0;  border-left: 1px solid #0057A7;
+  /* Old browsers */
+  /* #6f7672; orig gradient #575c58; */
+  background: -moz-linear-gradient(top, #F58233 5%, #FFC222 100%);  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #F58233), color-stop(100%, #FFC222));  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #F58233 5%, #FFC222 100%);  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #F58233 5%, #FFC222 100%);  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #F58233 5%, #FFC222 100%);  /* IE10+ */
+  background: linear-gradient(top, #F58233 5%, #FFC222 100%);  /* W3C */
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#F58233', endColorstr='#FFC222', GradientType=0);  /* IE6-9 */}
+nav#primary ul li a {  display: block;  margin: 0;  padding: 0 12px;  color: #0057A7;  text-decoration: none;}
+nav#primary ul li a:current {  background: #0057A7;  text-decoration: none;}
+/*nav#primary .coord-menu-only,nav#primary .eval-menu-only { display: none; }*/
+nav#primary ul li a:hover,
+body.home a#homenav,
+body.resources a#rscsnav,
+body.data a#datanav,
+body.about a#aboutnav,
+body.help a#helpnav,
+body.coord a#coordnav
+ {
+   color: #ffffff;
+  /* Old browsers */   /* #3e423f; orig gradient #575c58; */  
+  background: -moz-linear-gradient(top, #0057A7 5%, #448fc6 100%);  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #0057A7), color-stop(100%, #448fc6));  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #0057A7 5%, #448fc6 100%);  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #0057A7 5%, #448fc6 100%);  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #0057A7 5%, #448fc6 100%);  /* IE10+ */
+  background: linear-gradient(top, #0057A7 5%, #448fc6 100%);  /* W3C */
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#0057A7', endColorstr='#448fc6', GradientType=0);  /* IE6-9 */
+}
+nav#primary #combined-nav {  margin: 0 auto;  max-width: 1000px;}
+nav#primary #combined-nav ul,nav#primary #combined-nav ol{ list-style: none;}
+
+/*--- DROPDOWN ---*/
+nav#primary ul li ul{
+ background:#FFC222; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+ background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+ list-style:none; position: fixed; display:none; /* Hide off-screen when not needed (this is more accessible than display:none;) */ }
+nav#primary ul li ul li{ border-bottom: 1px solid #0057A7; float:none;}
+nav#primary ul li ul li.first{  border-top: 1px solid #0057A7;}
+nav#primary ul li ul a{ white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */}
+nav#primary ul li.hover ul{ /* Display the dropdown on hover */
+ display: block; position:static; /* Bring back on-screen when needed */}
+nav#primary li:hover{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+ /*text-decoration:underline;*/ }
+nav#primary li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+ /*text-decoration:none;*/ }
+nav#primary li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */ }
+
+/* Navigation & List Styles */
+.lib-horizontal-list { margin-top: 1.5em; }
+.lib-horizontal-list ul { font-size: .95em; margin-bottom: 1em; }
+.lib-horizontal-list ul li { float: left; margin: 1em 1em 0 0; padding: 0 .7em 0 0; }
+
+/* <-- http://matthewjamestaylor.com/blog/perfect-2-column-left-menu.htm */
+/* column container */
+.colmask { position:relative; /* This fixes the IE7 overflow hidden bug */ clear:both; float:left; width:100%;   /* width of whole page */
+ overflow:hidden;  /* This chops off any overhanging divs */ }
+/* common column settings */
+.colright,.colmid,.colleft { float:left; width:100%;   /* width of page */ position:relative;}
+.col1,.col2,.col3 { float:left; position:relative; overflow:hidden;
+ padding:0 0 1em 0; /* no left and right padding on columns, we just make them narrower instead 
+     only padding top and bottom is included here, make it whatever value you need */ }
+
+/* 3 Column settings for 50/25/25% */
+.threecol {
+ /*background:#eee;   right column background colour */ }
+.threecol .colmid {
+ right:25%;   /* width of the right column */
+ /*background:#fff;   center column background colour */ }
+.threecol .colleft {
+ right:25%;   /* width of the middle column */
+ /*background:#f4f4f4;  left column background colour */ }
+.threecol .col1 {
+ width:21%;   /* width of center column content (column width minus padding on either side) */
+ left:102%;   /* 100% plus left padding of center column */ }
+.threecol .col2 {
+ width:46%;   /* Width of left column content (column width minus padding on either side) */
+ left:31%;   /* width of (right column) plus (center column left and right padding) plus (left column left padding) */ }
+.threecol .col3 {
+ width:21%;   /* Width of right column content (column width minus padding on either side) */
+ left:60%;   /* Please make note of the brackets here:
+     (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */ }
+/* --> */
+
+/* 2 Column (left menu) settings for 75/25%, 2% padding*/
+.leftmenu {background:#fff;  /* right column background colour */}
+.leftmenu .colleft {right:25%;   /* right column width */background:#f4f4f4; /* left column background colour */}
+.leftmenu .col1 {width:21%;   /* right column content width */left:102%;   /* 100% plus left column left padding */}
+.leftmenu .col2 {width:71%;   /* left column content width (column width minus left and right padding) */
+left:6%;   /* (right column left and right padding) plus (left column left padding) */}
+/* 2 Column (right menu) settings for 75/25%, 0/1/0/0% padding */
+.rightmenu { background:#D9D5AC;  /* right column background colour */}
+.rightmenu .colleft { right:25%;   /* right column width */ background:#D9D5AC;  /* left column background colour */}
+.rightmenu .col1 { width:74%;   /* left column content width (left column width minus left and right padding) */
+ left:25%;   /* (right column width) plus (left column left padding) */}
+.rightmenu .col2 { width:25%;   /* right column content width (right column width minus left and right padding) */
+ left:26%;   /* (right column width) plus (left column left and right padding) plus (right column left padding) */}
+
+/* 2 Column (double page) settings */
+.doublepage {  background:#fff;    /* right column background colour */}
+.doublepage .colleft {  right:50%;      /* right column width */  background:#fff;    /* left column background colour */}
+.doublepage .col1 {  width:46%;      /* left column content width (column width minus left and right padding) */
+  left:52%;      /* right column width plus left column left padding */}
+.doublepage .col2 {  width:46%;      /* right column content width (column width minus left and right padding) */
+  left:56%;      /* (right column width) plus (left column left and right padding) plus (right column left padding) */}
+
+
+
+/* --- default page --- */
+.user-functions { list-style: disc inside !important; }
+.user-functions li { padding: 2px 0;}
